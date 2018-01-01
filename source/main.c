@@ -177,3 +177,110 @@ int  checkOver(int bombs[][11], int x, int y)
 	}
 	return result;
 }
+//顯示目前
+void showCurrentCondition(int bombs[][11], int x, int y, int over)
+{
+	system("cls");
+	printf("\n");
+	int i, j;
+	if (over == 0)
+	{
+		showPlayingCondititon(bombs);
+	}
+	else
+	{
+		showOverCondititon(bombs, over);
+	}
+
+}
+
+//顯示未結束
+void showPlayingCondititon(int bombs[][11])
+{
+	int i, j;
+	printf("      ");
+	for (i = 1; i <= 9; i++)
+		printf("%2d", i);
+
+	printf("\n    ┌－－－－－－－－－┐\n");
+
+	for (i = 1; i <= 9; i++)
+	{
+		for (j = 0; j <= 9; j++)
+		{
+			if (j == 0)
+				printf("%4d｜", i);
+			else if (bombs[i][j] < 10)
+				printf("口");
+			else if (bombs[i][j] == 10)
+				printf(" 0");
+			else if (bombs[i][j] > 10 && bombs[i][j] <= 18)
+				printf(" %d", bombs[i][j] - 10);  //前面有+10 印出-10的情形 顯示用
+			if (j == 9)
+				printf("｜%d", i);
+		}
+		printf("\n");
+	}
+
+	printf("    └－－－－－－－－－┘\n");
+	printf("      ");
+
+	for (i = 1; i <= 9; i++)
+		printf("%2d", i);
+
+	printf("\n");
+}
+
+//遊戲結束
+void showOverCondititon(int bombs[][11], int over)
+{
+	int i, j;
+
+	printf("  ┌－－－－－－－－－┐\n");
+
+	for (i = 1; i <= 9; i++)
+	{
+		for (j = 0; j <= 10; j++)
+		{
+			if (j == 0)
+				printf("  ｜");
+			else if (j == 10)
+				printf("｜");
+			else if (bombs[i][j] % 10 == 0)
+				printf("．");
+			else if (bombs[i][j] == -1)
+				printf(" *");
+			else if (bombs[i][j] == -2)
+				printf("⊕");
+			else
+				printf("%2d", bombs[i][j] % 10);
+		}
+		printf("\n");
+	}
+
+	printf("  └－－－－－－－－－┘\n");
+
+	if (over == 1)
+		printf("你竟然沒踩到地雷！\n\n");
+	else
+		printf("蹦…… \n\n");
+
+	printf("數字代表周圍八格地雷總數量\n");
+	printf("*代表地雷\n");
+	printf("．代表周圍沒地雷\n");
+	printf("⊕代表爆掉的地雷。\n");
+}
+
+//再來一次?
+char playAgain(void)
+{
+	char again;
+
+	do
+	{
+		printf("\n再來一次？(Y/N)  >>");
+		scanf(" %c", &again);
+	} while (again != 'Y' && again != 'y' && again != 'N' && again != 'n');
+
+	return(again);
+}
