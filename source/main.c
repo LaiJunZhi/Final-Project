@@ -2,19 +2,19 @@
 #include<stdlib.h>
 #include<time.h>
 
-void initial(int bombs[][11]);											//±N®æ¤l¤º¸ê°Tªì©l¤Æ¬°0
-void show(void);														//¦L¥X¹CÀ¸ªì©lªº®æ¤l 
-void open(int *x, int *y);												//¿é¤J®y¼Ğ
-void putBomb(int bombs[][11], int x, int y);							//©ñ¸m¦a¹p
-void calculateNumOfBombs(int bombs[][11]);								//­pºâ«D¦a¹p°Ïªşªñ¦³´XÁû¦a¹p 
-void showOpen(int bombs[][11], int x, int y);							//¥´¶}©Ò½ò¦ì¸m
-void openSurrounding(int bombs[][11], int x, int y);					//¥´¶}©P³ò8®æ¡]©P³ò8®æ¨S¦a¹p¡^  
-void checkNoBomb(int bombs[][11], int x, int y);						//ÀË¬d©P³ò8®æ¦³¨S¦³¦a¹p
-int  checkOver(int bombs[][11], int x, int y);							//ÀË¬d¹CÀ¸¬O§_µ²§ô
-void showCurrentCondition(int bombs[][11], int x, int y, int over);		//Åã¥Ü¥Ø«e
-void showPlayingCondititon(int bombs[][11]);							//Åã¥Ü¥¼µ²§ô
-void showOverCondititon(int bombs[][11], int over);						//¹CÀ¸µ²§ô(¦a¹p¦ì¸m)
-char playAgain(void);													//¦A¨Ó¤@¦¸?
+void initial(int bombs[][11]);											//å°‡æ ¼å­å…§è³‡è¨Šåˆå§‹åŒ–ç‚º0
+void show(void);														//å°å‡ºéŠæˆ²åˆå§‹çš„æ ¼å­ 
+void open(int *x, int *y);												//è¼¸å…¥åº§æ¨™
+void putBomb(int bombs[][11], int x, int y);							//æ”¾ç½®åœ°é›·
+void calculateNumOfBombs(int bombs[][11]);								//è¨ˆç®—éåœ°é›·å€é™„è¿‘æœ‰å¹¾é¡†åœ°é›· 
+void showOpen(int bombs[][11], int x, int y);							//æ‰“é–‹æ‰€è¸©ä½ç½®
+void openSurrounding(int bombs[][11], int x, int y);					//æ‰“é–‹å‘¨åœ8æ ¼ï¼ˆå‘¨åœ8æ ¼æ²’åœ°é›·ï¼‰  
+void checkNoBomb(int bombs[][11], int x, int y);						//æª¢æŸ¥å‘¨åœ8æ ¼æœ‰æ²’æœ‰åœ°é›·
+int  checkOver(int bombs[][11], int x, int y);							//æª¢æŸ¥éŠæˆ²æ˜¯å¦çµæŸ
+void showCurrentCondition(int bombs[][11], int x, int y, int over);		//é¡¯ç¤ºç›®å‰
+void showPlayingCondititon(int bombs[][11]);							//é¡¯ç¤ºæœªçµæŸ
+void showOverCondititon(int bombs[][11], int over);						//éŠæˆ²çµæŸ(åœ°é›·ä½ç½®)
+char playAgain(void);													//å†ä¾†ä¸€æ¬¡?
 
 int main(void)
 {
@@ -24,30 +24,30 @@ int main(void)
 	do
 	{
 		system("cls");
-		initial(bombs);									//±N®æ¤l¤º¸ê°Tªì©l¤Æ¬°0
-		show();											//¦L¥X¹CÀ¸ªì©lªº®æ¤l 
-		open(&x, &y);									//¿é¤J®y¼Ğ
-		putBomb(bombs, x, y);							//©ñ¸m¦a¹p
-		calculateNumOfBombs(bombs);						//­pºâ«D¦a¹p°Ïªşªñ¦³´X¼u¦a¹p
-		showOpen(bombs, x, y);							//¥´¶}©Ò½ò¦ì¸m
-		checkNoBomb(bombs, x, y);						//¥´¶}©P³ò8®æ¡]¦pªG©P³ò8®æ¨S¦a¹p¡^
-		over = checkOver(bombs, x, y);					//ÀË¬d¹CÀ¸¬O§_µ²§ô
-		showCurrentCondition(bombs, x, y, over);		//Åã¥Ü¥Ø«e
+		initial(bombs);									//å°‡æ ¼å­å…§è³‡è¨Šåˆå§‹åŒ–ç‚º0
+		show();											//å°å‡ºéŠæˆ²åˆå§‹çš„æ ¼å­ 
+		open(&x, &y);									//è¼¸å…¥åº§æ¨™
+		putBomb(bombs, x, y);							//æ”¾ç½®åœ°é›·
+		calculateNumOfBombs(bombs);						//è¨ˆç®—éåœ°é›·å€é™„è¿‘æœ‰å¹¾å½ˆåœ°é›·
+		showOpen(bombs, x, y);							//æ‰“é–‹æ‰€è¸©ä½ç½®
+		checkNoBomb(bombs, x, y);						//æ‰“é–‹å‘¨åœ8æ ¼ï¼ˆå¦‚æœå‘¨åœ8æ ¼æ²’åœ°é›·ï¼‰
+		over = checkOver(bombs, x, y);					//æª¢æŸ¥éŠæˆ²æ˜¯å¦çµæŸ
+		showCurrentCondition(bombs, x, y, over);		//é¡¯ç¤ºç›®å‰
 		while (over == 0)
 		{
 			open(&x, &y);
-			showOpen(bombs, x, y);						//¿é¤J®y¼Ğ
-			checkNoBomb(bombs, x, y);					//¥´¶}©P³ò8®æ¡]¦pªG©P³ò8®æ¨S¦a¹p¡^
-			over = checkOver(bombs, x, y);				//ÀË¬d¹CÀ¸¬O§_µ²§ô
-			showCurrentCondition(bombs, x, y, over);	//Åã¥Ü¥Ø«e
+			showOpen(bombs, x, y);						//è¼¸å…¥åº§æ¨™
+			checkNoBomb(bombs, x, y);					//æ‰“é–‹å‘¨åœ8æ ¼ï¼ˆå¦‚æœå‘¨åœ8æ ¼æ²’åœ°é›·ï¼‰
+			over = checkOver(bombs, x, y);				//æª¢æŸ¥éŠæˆ²æ˜¯å¦çµæŸ
+			showCurrentCondition(bombs, x, y, over);	//é¡¯ç¤ºç›®å‰
 		}
-		again = playAgain();							//¦A¨Ó¤@¦¸?
+		again = playAgain();							//å†ä¾†ä¸€æ¬¡?
 	} while (again == 'Y' || again == 'y');
 
 	return 0;
 }
 
-//±N®æ¤l¤º¸ê°Tªì©l¤Æ¬°0
+//å°‡æ ¼å­å…§è³‡è¨Šåˆå§‹åŒ–ç‚º0
 void initial(int bombs[][11])
 {
 	int i, j;
@@ -56,13 +56,13 @@ void initial(int bombs[][11])
 		bombs[i][j] = 0;
 }
 
-//¦L¥X¹CÀ¸ªì©lªº®æ¤l 
+//å°å‡ºéŠæˆ²åˆå§‹çš„æ ¼å­ 
 void show(void)
 {
 	int i, j;
-	printf("              ½ò¦a¹p\n");
+	printf("              è¸©åœ°é›·\n");
 	printf("---------------------------------------\n");
-	printf("	¤£À´³W«h½Ğ¥ıgoogle­ò!\n");
+	printf("	ä¸æ‡‚è¦å‰‡è«‹å…ˆgoogleå”·!\n");
 	printf("---------------------------------------\n\n");
 	printf("    ");
 	for (i = 1; i <= 9; i++)
@@ -75,24 +75,24 @@ void show(void)
 			if (j == 0)
 				printf("%4d", i);
 			else
-				printf("¤f");
+				printf("å£");
 		}
 		printf("\n");
 	}
 }
 
-//¿é¤J®y¼Ğ
+//è¼¸å…¥åº§æ¨™
 void open(int *x, int *y)
 {
 	int op_x, op_y;
-	printf("\n¿é¤Jx,y®y¼Ğ(ªÅ¥ÕÁä¹j¶}) : ");
+	printf("\nè¼¸å…¥x,yåº§æ¨™(ç©ºç™½éµéš”é–‹) : ");
 	scanf("%d%d", y, x);
 }
 
-//©ñ¸m¦a¹p
+//æ”¾ç½®åœ°é›·
 void putBomb(int bombs[][11], int x, int y)
 {
-	srand(time(NULL));          //  ¶Ã¼ÆºØ¤l 
+	srand(time(NULL));          //  äº‚æ•¸ç¨®å­ 
 	int  n = 0,
 		rand_num,
 		bomb_x,
@@ -106,32 +106,74 @@ void putBomb(int bombs[][11], int x, int y)
 		bomb_y = ((rand_num - bomb_x) / 9) + 1;
 		if (bombs[bomb_x][bomb_y] != -1 && !(bomb_x == x && bomb_y == y))
 		{
-			bombs[bomb_x][bomb_y] = -1;         //-1 ªí¥Ü¦a¹p
+			bombs[bomb_x][bomb_y] = -1;         //-1 è¡¨ç¤ºåœ°é›·
 			n++;
 		}
-	} while (n < 15);      // ¦a¹p¼Æ¶q15Áû
+	} while (n < 15);      // åœ°é›·æ•¸é‡15é¡†
 }
-//­pºâ«D¦a¹p°Ïªşªñ¦³´XÁû¦a¹p
+//è¨ˆç®—éåœ°é›·å€é™„è¿‘æœ‰å¹¾é¡†åœ°é›·
 void calculateNumOfBombs(int bombs[][11])
 {
 	int i, j, u, v;
 	for (i = 1; i <= 9; i++)
-		for (j = 1; j <= 9; j++)
-			if (bombs[i][j] == 0)
-				for (u = i - 1; u <= i + 1; u++)
-					for (v = j - 1; v <= j + 1; v++)
-						if (bombs[u][v] == -1)
-							bombs[i][j]++;
+	for (j = 1; j <= 9; j++)
+	if (bombs[i][j] == 0)
+	for (u = i - 1; u <= i + 1; u++)
+	for (v = j - 1; v <= j + 1; v++)
+	if (bombs[u][v] == -1)
+		bombs[i][j]++;
+
 }
 
-//¥´¶}©Ò½ò¦ì¸m
+//æ‰“é–‹æ‰€è¸©ä½ç½®
 void showOpen(int bombs[][11], int x, int y)
 {
 	if (bombs[x][y] == -1)
-		bombs[x][y] = -2;                //½ò¨ì¦a¹pªº¦ì¸m-1§ï-2(¹CÀ¸µ²§ôÅã¥Ü¥Î)
+		bombs[x][y] = -2;                //è¸©åˆ°åœ°é›·çš„ä½ç½®-1æ”¹-2(éŠæˆ²çµæŸé¡¯ç¤ºç”¨)
 
 	if (bombs[x][y] >= 0 && bombs[x][y] <= 8)
-		bombs[x][y] += 10;				//¥Nªí½ò¹L +10
+		bombs[x][y] += 10;				//ä»£è¡¨è¸©é +10
 }
 
+//æ‰“é–‹å‘¨åœ8æ ¼ï¼ˆå‘¨åœ8æ ¼æ²’åœ°é›·ï¼‰ 
+void openSurrounding(int bombs[][11], int x, int y)
+{
+	int i, j;
+	for (i = x - 1; i <= x + 1; i++)
+	{
+		for (j = y - 1; j <= y + 1; j++)
+		{
+			if (bombs[i][j] >= 0 && bombs[i][j] <= 8 && i % 10 != 0 && j % 10 != 0)
+			{
+				bombs[i][j] += 10;
+				checkNoBomb(bombs, i, j);
+			}
+		}
+	}
+}
 
+//æª¢æŸ¥å‘¨åœ8æ ¼æœ‰æ²’æœ‰åœ°é›·
+void checkNoBomb(int bombs[][11], int x, int y)
+{
+	if (bombs[x][y] == 10)        //10è¡¨ç¤º å‘¨åœ8æ ¼æ²’åœ°é›· 
+		openSurrounding(bombs, x, y);
+}
+
+//æª¢æŸ¥éŠæˆ²æ˜¯å¦çµæŸ
+int  checkOver(int bombs[][11], int x, int y)
+{
+	//result == 0 ->å°šæœªçµæŸï¼Œresult == 1 ->è´ï¼Œresult == -1 ->è¼¸
+	int i, j, result = 1;
+	if (bombs[x][y] == -2)        //è¼¸å…¥åº§æ¨™è€Œè¸©åˆ°åœ°é›·çš„ä½ç½®-2
+	{
+		result = -1;
+	}
+	else
+	{
+		for (i = 1; i <= 9 && result == 1; i++)
+			for (j = 1; j <= 9 && result == 1; j++)
+				if ((bombs[i][j] >= 0 && bombs[i][j] <= 8))   //æ²’è¸©å‡ºä¾†çš„æ²’+10ï¼Œä»£è¡¨é‚„æ²’çµæŸ
+					result = 0;
+	}
+	return result;
+}
