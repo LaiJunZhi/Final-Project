@@ -1,14 +1,24 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  main.c
-c:\users\daleliao1141\desktop\final_project\source\main.c(89): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: 請參閱 'scanf' 的宣告
-c:\users\daleliao1141\desktop\final_project\source\main.c(87): warning C4101: 'op_y': 未參考的區域變數
-c:\users\daleliao1141\desktop\final_project\source\main.c(87): warning C4101: 'op_x': 未參考的區域變數
-c:\users\daleliao1141\desktop\final_project\source\main.c(95): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
-c:\users\daleliao1141\desktop\final_project\source\main.c(186): warning C4101: 'j': 未參考的區域變數
-c:\users\daleliao1141\desktop\final_project\source\main.c(186): warning C4101: 'i': 未參考的區域變數
-c:\users\daleliao1141\desktop\final_project\source\main.c(283): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: 請參閱 'scanf' 的宣告
-  final_project.vcxproj -> C:\Users\daleliao1141\Desktop\final_project\final_project\final_project\..\..\temp\debug\final_project.exe
-  final_project.vcxproj -> ..\..\temp\debug\final_project.pdb (Full PDB)
+﻿已經開始建置於 2018/1/2 上午 01:27:24。
+     1>節點 2 (Build 目標) 上的專案 "C:\Users\daniel chung\Desktop\Final-Project\final_project\final_project\final_project.vcxproj"。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(356,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\..\temp\debug\\" /Fd"..\..\temp\debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\source\main.c
+         main.c
+     1>c:\users\daniel chung\desktop\final-project\source\main.c(89): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
+     1>c:\users\daniel chung\desktop\final-project\source\main.c(87): warning C4101: 'op_y' : 未參考的區域變數
+     1>c:\users\daniel chung\desktop\final-project\source\main.c(87): warning C4101: 'op_x' : 未參考的區域變數
+     1>c:\users\daniel chung\desktop\final-project\source\main.c(95): warning C4244: '函式' : 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\temp\debug\final_project.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\temp\debug\final_project.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\temp\debug\final_project.lib" /MACHINE:X86 ..\..\temp\debug\main.obj
+     1>main.obj : error LNK2019: 無法解析的外部符號 _checkNoBomb 在函式 _main 中被參考
+     1>main.obj : error LNK2019: 無法解析的外部符號 _checkOver 在函式 _main 中被參考
+     1>main.obj : error LNK2019: 無法解析的外部符號 _showCurrentCondition 在函式 _main 中被參考
+     1>main.obj : error LNK2019: 無法解析的外部符號 _playAgain 在函式 _main 中被參考
+     1>..\..\temp\debug\final_project.exe : fatal error LNK1120: 4 個無法解析的外部符號
+     1>專案 "C:\Users\daniel chung\Desktop\Final-Project\final_project\final_project\final_project.vcxproj" (Build 目標) 建置完成 -- 失敗。
+
+建置失敗。
+
+經過時間 00:00:00.68

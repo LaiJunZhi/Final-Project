@@ -111,3 +111,26 @@ void putBomb(int bombs[][11], int x, int y)
 		}
 	} while (n < 15);      // 地雷數量15顆
 }
+//計算非地雷區附近有幾顆地雷
+void calculateNumOfBombs(int bombs[][11])
+{
+	int i, j, u, v;
+	for (i = 1; i <= 9; i++)
+	for (j = 1; j <= 9; j++)
+	if (bombs[i][j] == 0)
+	for (u = i - 1; u <= i + 1; u++)
+	for (v = j - 1; v <= j + 1; v++)
+	if (bombs[u][v] == -1)
+		bombs[i][j]++;
+}
+
+//打開所踩位置
+void showOpen(int bombs[][11], int x, int y)
+{
+	if (bombs[x][y] == -1)
+		bombs[x][y] = -2;                //踩到地雷的位置-1改-2(遊戲結束顯示用)
+
+	if (bombs[x][y] >= 0 && bombs[x][y] <= 8)
+		bombs[x][y] += 10;				//代表踩過 +10
+}
+
