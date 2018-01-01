@@ -47,3 +47,67 @@ int main(void)
 	return 0;
 }
 
+//將格子內資訊初始化為0
+void initial(int bombs[][11])
+{
+	int i, j;
+	for (i = 0; i < 11; i++)
+	for (j = 0; j < 11; j++)
+		bombs[i][j] = 0;
+}
+
+//印出遊戲初始的格子 
+void show(void)
+{
+	int i, j;
+	printf("              踩地雷\n");
+	printf("---------------------------------------\n");
+	printf("	不懂規則請先google唷!\n");
+	printf("---------------------------------------\n\n");
+	printf("    ");
+	for (i = 1; i <= 9; i++)
+		printf("%2d", i);
+	printf("\n");
+	for (i = 1; i <= 9; i++)
+	{
+		for (j = 0; j <= 9; j++)
+		{
+			if (j == 0)
+				printf("%4d", i);
+			else
+				printf("口");
+		}
+		printf("\n");
+	}
+}
+
+//輸入座標
+void open(int *x, int *y)
+{
+	int op_x, op_y;
+	printf("\n輸入x,y座標(空白鍵隔開) : ");
+	scanf("%d%d", y, x);
+}
+
+//放置地雷
+void putBomb(int bombs[][11], int x, int y)
+{
+	srand(time(NULL));          //  亂數種子 
+	int  n = 0,
+		rand_num,
+		bomb_x,
+		bomb_y;
+
+
+	do
+	{
+		rand_num = rand() % 81;
+		bomb_x = (rand_num % 9) + 1;
+		bomb_y = ((rand_num - bomb_x) / 9) + 1;
+		if (bombs[bomb_x][bomb_y] != -1 && !(bomb_x == x && bomb_y == y))
+		{
+			bombs[bomb_x][bomb_y] = -1;         //-1 表示地雷
+			n++;
+		}
+	} while (n < 15);      // 地雷數量15顆
+}
